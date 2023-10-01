@@ -33,7 +33,7 @@
     .marginClass{
         margin: 0.1rem;
         gap: 1 !important;
-        /* justify-content: space-around !important; */
+        justify-content: space-around !important;
     }
     .navbar-heading{
         font-size: 20px !important;
