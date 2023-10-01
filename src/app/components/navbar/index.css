@@ -1,0 +1,48 @@
+.cursorr{
+    cursor: wait !important;
+
+}
+.fontss{
+    font-style:italic;
+}
+
+.marginClass{
+    margin: 1rem;
+}
+.three-dots{
+    display: none !important;
+}
+@media screen and (max-width: 950px){
+    .marginClass{
+        margin: 0.3rem;
+        gap: 5 !important;
+        justify-content: space-around !important;
+    }
+}
+
+@media screen and (max-width: 758px){
+    .three-dots{
+        display: flex !important;
+    }
+    .navbar-menuComponents{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 470px){
+    .marginClass{
+        margin: 0.1rem;
+        gap: 1 !important;
+        /* justify-content: space-around !important; */
+    }
+    .navbar-heading{
+        font-size: 20px !important;
+        margin: 0rem !important;
+    }
+    .navbar-right-components{
+        font-size: 12px;
+        margin: 0rem !important;
+        gap: 1 !important;
+        flex: 0 !important;
+    }
+}
