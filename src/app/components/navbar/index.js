@@ -1,23 +1,24 @@
 "use client"
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import "./index.css"
-import { adminNavOptions , navOptions } from "@/app/utils";
+import { adminNavOptions , navOptions , styles} from "@/app/utils";
 import {FaEllipsisV } from "react-icons/fa";
-
-const isAuth = false;
+import {AiOutlineShoppingCart} from "react-icons/ai";
+import {RiAccountCircleFill} from "react-icons/ri";
+const isAuth = true;
 const isAdminView = false;
 const user={
     role:"admin"
 };
 
-export default function Navbar(){
+export default function Navbar(props){
 
     const [togglemenu , setToggleMenu] = useState(false);
     function Navitems (){
         return (
             <div className="flex justify-between items-center w-full">
-                <ul className="flex flex-column ">
+                <ul className="navItemsClass">
                     {
                         isAdminView? adminNavOptions.map(items=><li className="cursor-pointer marginClass" key={items.id}>
                             {items.label}
@@ -39,9 +40,11 @@ export default function Navbar(){
         
     }
 
+    
+
     return(
         <nav className="bg-white w-full fixed top-0 left-0 border-b z-20 border-grey-200 ">
-            <div className="max-w-screen-xl flex flex-wrap justify-between p-4 mx-auto">
+            <div className="max-w-screen-xl flex flex-wrap justify-between p-4 mx-auto nav_height">
                 <div className="flex items-center cursor-pointer ">
                     <span className="place-content-center text-2xl font-semibold whitespace-nowrap fontss marginClass navbar-heading">
                         Quest Shoe
@@ -50,28 +53,32 @@ export default function Navbar(){
 
 
                 <div className="flex items-center gap-14 navbar-menuComponents">
-                    <Navitems/>
+                    <Navitems />
                 </div>
 
-                <div className="flex gap-4 items-center navbar-right-components">
+                <div className="flex gap-1 items-center navbar-right-components">
                     {
                         !isAdminView && isAuth ?
                         <Fragment>
-                        <butoton>Account</butoton>
-                        <butoton>Cart</butoton>
+                        <butoton className=" cartButton"><RiAccountCircleFill/></butoton>
+                        <butoton className=" buttonClass cartBtn">Account</butoton>
+                        <butoton className=" cartBtn buttonClass">Cart</butoton>
+                        <butoton className=" cartButton"><AiOutlineShoppingCart/> </butoton>
                     </Fragment>: null
                     }
                     {
                         user.role == "admin" ? 
-                        isAdminView ? <button className="marginClass">Client View</button> : <button className="marginClass">Admin View</button>
+                        isAdminView ? <button className="=buttonClass">Client View</button> : <button className="buttonClass adminButton">Admin View</button>
                         :
                         null
                     }
                     {
-                        isAuth ? <button className="marginClass">Logout</button>:
-                        <div className="flex gap-4">
-                            <button className="marginClass">Login</button>
-                            <button className="marginClass">Signup</button>
+                        isAuth ? <div className="flex gap-1"><button className="buttonClass">Logout</button>
+                                    <div className="flex justify-center items-center three-dots" onClick={handleOnClick}><FaEllipsisV/></div>
+                        </div>:
+                        <div className="flex gap-1">
+                            <button className="buttonClass">Login</button>
+                            <button className="buttonClass">Signup</button>
                             <div className="flex justify-center items-center three-dots" onClick={handleOnClick}><FaEllipsisV/></div>
                             
                         </div>
@@ -79,15 +86,16 @@ export default function Navbar(){
                     
                 </div>
             </div>
-            <div>
+            <div className="pl-5">
                 {
                     togglemenu? <div className="flex items-center gap-14 ">
-                    <Navitems/>
+                    <Navitems />
                 </div>: null
                 }
             </div>
             
 
         </nav>
+
     )
 }

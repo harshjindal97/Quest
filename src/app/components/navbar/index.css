@@ -7,16 +7,53 @@
 }
 
 .marginClass{
-    margin: 1rem;
+    margin: 0.5rem;
 }
 .three-dots{
     display: none !important;
 }
+
+
+.buttonClass{
+    padding: 0.6rem  1.1rem !important;
+    background-color: black !important;
+    color: white !important;
+}
+
+.cartButton{
+    display: none !important;
+}
+.flexx{
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.navItemsClass{
+    display: flex !important;
+    /* flex-direction: column !important; */
+
+}
+.nav_heigth{
+    max-height: 70px !important;
+}
+
 @media screen and (max-width: 950px){
     .marginClass{
         margin: 0.3rem;
         gap: 5 !important;
         justify-content: space-around !important;
+    }
+    .three-dots{
+        display: flex !important;
+        margin: none !important;
+    }
+    .navbar-menuComponents{
+        display: none !important;
+    }
+    .navItemsClass{
+        display: flex !important;
+        flex-direction: column !important;
+    
     }
 }
 
@@ -27,7 +64,45 @@
     .navbar-menuComponents{
         display: none !important;
     }
+    .buttonClass{
+        font-size: 10px;
+    }
 }
+
+@media screen and (max-width:560px){
+    .navbar-heading{
+        font-size: 20px !important;
+        margin: 0rem !important;
+        margin-right: 0.5rem !important;
+    }
+    .buttonClass{
+        font-size: 7px !important;
+        margin: 0.1rem;
+        flex-wrap: nowrap;
+    }
+    .navbar-right-components{
+        font-size: 12px !important;
+        margin: 0rem !important;
+        gap: 0 !important;
+        flex: 0 !important;
+    }
+    .changeText{
+        text-transform: harsh;
+    }
+    .cartButton{
+        display: flex !important;
+        font-size: 20px !important;
+        margin: 0.5rem;
+    }
+    .cartBtn{
+        display: none !important;
+    }
+    .adminButton{
+        min-width: 74.88px;
+    }
+
+}
+
 
 @media screen and (max-width: 470px){
     .marginClass{
@@ -35,14 +110,19 @@
         gap: 1 !important;
         justify-content: space-around !important;
     }
-    .navbar-heading{
-        font-size: 20px !important;
-        margin: 0rem !important;
-    }
+    
+    
     .navbar-right-components{
-        font-size: 12px;
+        font-size: 12px !important;
         margin: 0rem !important;
         gap: 1 !important;
         flex: 0 !important;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .navbar-heading{
+        font-size: 17px !important;
+        margin-right: 0rem !important;
     }
 }

@@ -39,4 +39,8 @@ export const navOptions = [
       path: "/product/listing/kids",
     },
   ];
-  
+
+
+  export const styles = {
+    button:"mt-1.5 bg-black inline-block px-5 py-3 uppercase text-white font-large" 
+  }
