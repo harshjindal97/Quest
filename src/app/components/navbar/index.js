@@ -22,7 +22,7 @@ export default function Navbar(props){
                     {
                         isAdminView? adminNavOptions.map(items=><li className="cursor-pointer marginClass" key={items.id}>
                             {items.label}
-                        </li>) : navOptions.map(items=><li className="cursor-pointer marginClass">
+                        </li>) : navOptions.map(items=><li key={items.id} className="cursor-pointer marginClass">
                             {items.label}
                         </li>)
                     }

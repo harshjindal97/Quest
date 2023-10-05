@@ -19,7 +19,7 @@ export default function Login(){
                                 <div className="w-full relative mt-5 space-y-8">
                                     {
                                         loginFormControl.map((items)=>
-                                            items.componentType == "input" ? <InputComponent
+                                            items.componentType == "input" ? <InputComponent key={items.id}
                                             type={items.type} placeholder={items.placeholder} label={items.label} 
                                             />:
                                             items.componentType == 'select' ? <SelectComponent
