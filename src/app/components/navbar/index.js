@@ -43,8 +43,8 @@ export default function Navbar(props){
     
 
     return(
-        <nav className="bg-white w-full fixed top-0 left-0 border-b z-20 border-grey-200 ">
-            <div className="max-w-screen-xl flex flex-wrap justify-between p-4 mx-auto nav_height">
+        <nav className=" w-full fixed top-0 left-0 border-b z-20 border-grey-200 ">
+            <div className="bg-white max-w-screen-xl flex flex-wrap justify-between p-4 mx-auto nav_height">
                 <div className="flex items-center cursor-pointer ">
                     <span className="place-content-center text-2xl font-semibold whitespace-nowrap fontss marginClass navbar-heading">
                         Quest Shoe
@@ -78,7 +78,6 @@ export default function Navbar(props){
                         </div>:
                         <div className="flex gap-1">
                             <button className="buttonClass">Login</button>
-                            <button className="buttonClass">Signup</button>
                             <div className="flex justify-center items-center three-dots" onClick={handleOnClick}><FaEllipsisV/></div>
                             
                         </div>
@@ -86,16 +85,18 @@ export default function Navbar(props){
                     
                 </div>
             </div>
-            <div className="pl-5">
+            <div className="bg-white pl-5">
                 {
                     togglemenu? <div className="flex items-center gap-14 ">
                     <Navitems />
                 </div>: null
                 }
+                
             </div>
+            
             
 
         </nav>
-
+       
     )
 }

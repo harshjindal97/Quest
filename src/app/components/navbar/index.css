@@ -36,6 +36,9 @@
 .nav_heigth{
     max-height: 70px !important;
 }
+.height-class{
+    height: 1000px !important;
+}
 
 @media screen and (max-width: 950px){
     .marginClass{
