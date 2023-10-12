@@ -4,6 +4,7 @@ import InputComponent from '../components/formelements/inputComponent';
 import SelectComponent from '../components/formelements/selectComponent';
 import { registrationFormControl } from '../utils';
 import './style.css';
+import { newUser } from '@/services/register';
 
 const isRegistered = false;
 export default function Register (){
@@ -11,11 +12,24 @@ const data = {
     name:"",
     email:"",
     password:"",
-    role:""
+    role:"costumer"
 }
 
     const [formData , setFormData] =useState(data);
-    console.log(formData);
+
+    const isDisabled= ()=>{
+        return(
+            formData &&
+            formData.name &&
+            formData.name.trim() &&
+            formData.email &&
+            formData.password ? false : true
+        )
+    }
+
+    const handelOnClick = async () => {
+        const data = await newUser(formData);
+    }
     return (
         <div className="bg-white relative">
             <div className="mt-12 flex flex-col w-full items-center justify-between pt-0 pr-10 pl-10 pb-0 mt-8 tosmall:mr-3 tosmall:ml-3">
@@ -35,7 +49,7 @@ const data = {
                                 <div className="w-full relative mt-5 space-y-8">
                                     {
                                         registrationFormControl.map((items)=>
-                                            items.componentType == "input" ? <InputComponent key={items.id}
+                                            items.componentType == "input" ? <InputComponent key={items.label}
                                             type={items.type} placeholder={items.placeholder} label={items.label} 
                                             onChange={(event) => {
                                                 setFormData({
@@ -44,12 +58,28 @@ const data = {
                                                 }
                                                 )
                                             }}
-                                            value={formData.id}
-                                            />:null
+                                            value={formData[items.id]}
+                                            />:
+                                            items.componentType == 'select' ? <SelectComponent key={items.id}
+                                            options={items.options} label={items.label}
+                                            onChange={(event) => {
+                                                setFormData({
+                                                    ...formData,
+                                                    [items.id]:event.target.value
+                                                }
+                                                )
+                                            }}
+                                            value={formData[items.id]}
+                                            />
+                                            :null
                                         )
                                         
+                                        
                                     }
-                                    <button className="bg-black text-white p-3 rounded w-full">
+                                    <button className="disabled:opacity-50 bg-black text-white p-3 rounded w-full"
+                                    disabled={isDisabled()}
+                                    onClick={handelOnClick}
+                                    >
                                         Register
                                     </button>
                                 </div>

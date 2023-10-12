@@ -22,7 +22,7 @@ export default function Login(){
                                             items.componentType == "input" ? <InputComponent key={items.id}
                                             type={items.type} placeholder={items.placeholder} label={items.label} 
                                             />:
-                                            items.componentType == 'select' ? <SelectComponent
+                                            items.componentType == 'select' ? <SelectComponent key={items.id}
                                             options={items.options} label={items.label}
                                             />
                                             :null

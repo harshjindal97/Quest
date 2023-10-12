@@ -6,9 +6,8 @@ export const newUser = async (registerData) => {
             "content-type": "application/json"
         },
         body: JSON.stringify(registerData)
-       }) 
-
-       const newUserData = response.json();
+       })
+       const newUserData = await response.json();
 
        return newUserData;
     } catch (error) {

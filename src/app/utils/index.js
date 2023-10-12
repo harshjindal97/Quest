@@ -72,14 +72,14 @@ export const navOptions = [
       componentType:"input"
     },
     {
-      id:"Email",
-      type:"Email",
+      id:"email",
+      type:"email",
       placeholder:"Enter Your Email",
       label:"Email",
       componentType:"input"
     },
     {
-      id:"Password",
+      id:"password",
       type:"password",
       placeholder:"Enter Your Password",
       label:"Password",
@@ -94,11 +94,11 @@ export const navOptions = [
       options:[
         {
           id:"admin",
-          label:"Admin"
+          label:"Customer"
         },
         {
           id:"customer",
-          label:"Customer"
+          label:"Admin"
         }
       ]
     }
